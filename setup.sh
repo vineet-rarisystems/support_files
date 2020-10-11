@@ -40,3 +40,7 @@ y
 cd gtp5g
 make
 sudo make install
+
+sudo snap install code --classic
+
+sudo apt install wireshark-qt
