@@ -1,7 +1,7 @@
 from pycrate_mobile.NAS             import *
-from pycrate_core.elt               import _with_json
-from pycrate_mobile.TS24501_FGMM import *
-from pycrate_mobile.TS24501_FGSM import *
+#from pycrate_core.elt               import _with_json
+#from pycrate_mobile.TS24501_FGMM import *
+#from pycrate_mobile.TS24501_FGSM import *
 
 # 5G NAS pdu
 nas_5g_pdu = tuple(map(unhexlify, (
@@ -26,7 +26,7 @@ nas_5g_pdu = tuple(map(unhexlify, (
     '7e00670500020002', # UE policy complete
     )))
 
-def decode_nas_5g(nas_pdu=nas_5g_pdu):
+def decode_nas_5g(nas_pdu):
     for pdu in nas_pdu:
         m, e = parse_NAS5G(pdu)
         assert( e == 0 )
@@ -46,12 +46,28 @@ def decode_nas_5g(nas_pdu=nas_5g_pdu):
 
 def test_my_code():
     #pdu_mas = unhexify('0123456789')
-    msg = FGMMRegistrationAccept() #Encoding a default message
-    print("/n/n  Default encoded message  /n/n")
-    msg.show()
-    print("/n/n  Decoding the messages  /n/n")
-    #decode_nas_5g(nas_5g_pdu)
+    
+    #msg = FGMMRegistrationAccept() #Encoding a default message
+    
+    
+    IEs = {}
+    IEs['CKSN']= 4
+    IEs['LocUpdateType'] = {'Type': 1}
+    IEs['LAI'] = (u'20820', 0x4321)
+    IEs['ID'] = {'type': 1, 'ident': u'208209876543210'}
+    IEs['AddUpdateParams'] = {'CSMO': 1, 'CSMT': 1}
+
+    msg = MMLocationUpdatingRequest(val=IEs)
+    show(msg)
+
+
+    print("/n/n  encode message  /n/n")
+    print(msg.to_bytes())
+    
+    print("/n/n  decode the messages  /n/n")
+    
     decode_nas_5g(msg)
+    
     #show(M)
 
 

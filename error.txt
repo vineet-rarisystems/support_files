@@ -1,0 +1,45 @@
+warning: CryptoMobile Python module not found, unable to handle LTE NAS security
+warning: CryptoMobile Python module not found, unable to handle 5G NAS security
+### MMLocationUpdatingRequest ###
+ ### MMHeader ###
+  <SkipInd : 0>
+  <ProtDisc : 5 (MM)>
+  <Seqn : 0>
+  <Type : 8 (Registration - LOCATION UPDATING REQUEST)>
+ ### CKSN ###
+  <V : 4>
+ ### LocUpdateType ###
+  ### LocUpdateType ###
+   <FollowOnReq : 0>
+   <spare : 0>
+   <Type : 1 (Periodic updating)>
+ ### LAI ###
+  ### LAI ###
+   <PLMN : 20820 (France.Bouygues Telecom)>
+   <LAC : 0x4321>
+ ### MSCm1 ###
+  <V : 0x40>
+ ### ID ###
+  <L : 8>
+  ### ID ###
+   <Digit1 : 0x2>
+   <Odd : 1>
+   <Type : 1 (IMSI)>
+   <Digits : 0x80028967452301>
+ ### AddUpdateParams ###
+  <T : 12>
+  ### AddUpdateParams ###
+   <spare : 0>
+   <CSMO : 1 (CS fallback MO call)>
+   <CSMT : 1 (CS fallback MT call)>
+/n/n  encode message  /n/n
+A�C!)��gE#�
+/n/n  decode the messages  /n/n
+Traceback (most recent call last):
+  File "mytest.py", line 75, in <module>
+    test_my_code()
+  File "mytest.py", line 69, in test_my_code
+    decode_nas_5g(msg)
+  File "mytest.py", line 32, in decode_nas_5g
+    assert( e == 0 )
+AssertionError
