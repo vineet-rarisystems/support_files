@@ -50,7 +50,6 @@ def test_my_code():
     
     #msg = FGMMRegistrationAccept() #Encoding a default message
     
-    
     IEs = {}
     IEs['CKSN']= 4
     IEs['LocUpdateType'] = {'Type': 1}
@@ -65,16 +64,21 @@ def test_my_code():
     '7e004179000d0100f1100000000022222222222e02e0e0', # 5GMM Reg Req
     )))
 
-    temp_msg = tuple(map(unhexlify, ( msg.to_bytes() )))
+    #temp_msg = tuple(map(unhexlify, ( msg)))
     print("/n/n  encode message  /n/n")
-    print(msg.to_bytes())
+    #print()
+    show(msg.to_bytes())
+    msg = hexlify(msg.to_bytes())
+    show(msg)
+
     
+    msg = tuple(map(unhexlify, (msg, )))
+    #print('type = '+type(temp_msg))
+
     print("/n/n  decode the messages  /n/n")
     
-    
-    
     #decode_nas_5g(nas_5g_pdu)
-    decode_nas_5g(temp_msg)
+    decode_nas_5g(msg)
     #show(M)
 
 
