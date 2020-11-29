@@ -1,7 +1,7 @@
 from pycrate_mobile.NAS             import *
 from pycrate_core.elt               import _with_json
-#from pycrate_mobile.TS24501_FGMM import *
-#from pycrate_mobile.TS24501_FGSM import *
+from pycrate_mobile.TS24501_FGMM import *
+from pycrate_mobile.TS24501_FGSM import *
 
 # 5G NAS pdu
 nas_5g_pdu = tuple(map(unhexlify, (
@@ -58,19 +58,23 @@ def test_my_code():
     IEs['ID'] = {'type': 1, 'ident': u'208209876543210'}
     IEs['AddUpdateParams'] = {'CSMO': 1, 'CSMT': 1}
 
-    msg = MMLocationUpdatingRequest(val=IEs)
+    msg = FGMMRegistrationRequest(val=IEs)
     show(msg)
 
     test_msg = tuple(map(unhexlify, (
     '7e004179000d0100f1100000000022222222222e02e0e0', # 5GMM Reg Req
     )))
+
+    temp_msg = tuple(map(unhexlify, ( msg.to_bytes() )))
     print("/n/n  encode message  /n/n")
     print(msg.to_bytes())
     
     print("/n/n  decode the messages  /n/n")
     
+    
+    
     #decode_nas_5g(nas_5g_pdu)
-    decode_nas_5g(test_msg)
+    decode_nas_5g(temp_msg)
     #show(M)
 
 
