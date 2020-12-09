@@ -1,0 +1,7 @@
+2020-12-09T13:55:42+05:30 [DEBU][AMF][NGAP] Set default sent param[value: &{Stream:0 SSN:0 Flags:0 _:0 PPID:1006632960 Context:0 TTL:0 TSN:0 CumTSN:0 AssocID:0}] successfully
+2020-12-09T13:55:42+05:30 [DEBU][AMF][NGAP] Subscribe SCTP event DATA_IO successfully
+2020-12-09T13:55:42+05:30 [DEBU][AMF][NGAP] Set read buffer to 8192 bytes
+2020-12-09T13:55:42+05:30 [INFO][AMF][NGAP] [AMF] SCTP Accept from: 127.0.0.1/10.0.2.15:48511
+2020-12-09T13:55:42+05:30 [ERRO][AMF][NGAP] Ran is nil
+2020-12-09T13:55:42+05:30 [DEBU][AMF][NGAP] Read EOF from client
+
