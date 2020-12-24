@@ -379,6 +379,27 @@ func DeRegistration(ue *RanUeContext) error {
 
 }
 
+func TestGUTIRegistration(ueId string) error {
+
+	//registring using UeId -> supi-> suci
+	ranUeContext, err := Registration(ueId)
+	//check for error
+	if err != nil {
+		logger.GNBLog.Errorln("Error in registration")
+		return err
+	}
+
+	//deregistering using guti
+	err = DeRegistration(ranUeContext)
+	if err != nil {
+		logger.GNBLog.Errorln("Error in Deregistration")
+		return err
+	}
+
+	//check for error
+	return err
+}
+
 func PDUSessionRequest(ue *RanUeContext, snssai string, sessionId uint8, dnn string) error {
 
 	fmt.Println(snssai)
